@@ -1,0 +1,21 @@
+.main-product {
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.product-image {
+  width: 100%;
+}
+.product-info{
+  text-align: center;
+}
+.product-info button{
+  margin: auto;
+  display: block;
+  padding: 5px;
+}
+.product-info button:hover{
+ cursor: pointer;
+}

@@ -1,0 +1,153 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Màn hình 25 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "2",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "3",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "4",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "5",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "6",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "7",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "8",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "9",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "10",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "11",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "12",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "13",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "14",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "15",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "16",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "17",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "18",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "19",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    },
+    {
+      "id": "20",
+      "name": "Màn hình 14 inch",
+      "price": 5000,
+      "imageUrl": "https://via.placeholder.com/150C/O%20https://placeholder.com/"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "name": "Màn hình 25 inch",
+      "quantity": 6
+    },
+    {
+      "id": "2",
+      "name": "Màn hình 14 inch",
+      "quantity": 1
+    },
+    {
+      "id": "5",
+      "name": "Màn hình 14 inch",
+      "quantity": 4
+    },
+    {
+      "id": "8",
+      "name": "Màn hình 14 inch",
+      "quantity": 3
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "nampro2002",
+      "password": "123"
+    }
+  ]
+}
