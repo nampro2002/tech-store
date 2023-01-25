@@ -3,3 +3,9 @@
     border: 1px solid #999;
     border-radius: 5px;
 }
+.footer-cart{
+    margin-top: 75px;
+    position: relative;
+    left: 75%;
+    width: 100%;
+}

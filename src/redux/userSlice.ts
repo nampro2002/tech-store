@@ -4,16 +4,18 @@ import { IUser } from "./../types/type";
 
 interface initState {
   users: IUser[];
-  userLogged: IUser;
+  // userLogged: IUser;
 }
 
 const initialState: initState = {
   users: [],
-  userLogged: {
-    id: "",
-    username: "",
-    password: "",
-  },
+  // userLogged: {
+  //   id: "",
+  //   name: "",
+  //   phone: "",
+  //   username: "",
+  //   password: "",
+  // },
 };
 
 export const getAllUser = createAsyncThunk("user/getAllUser", async () => {
@@ -21,31 +23,86 @@ export const getAllUser = createAsyncThunk("user/getAllUser", async () => {
   console.log(res.data);
   return res.data;
 });
+export const register = createAsyncThunk(
+  "user/register",
+  async (newUser: Omit<IUser, "id">) => {
+    const res = await axios.post("http://localhost:4000/users", newUser);
+    return res.data;
+  }
+);
+export const updateInfo = createAsyncThunk(
+  "user/updateInfo",
+  async (updatedInfo: Omit<IUser, "password" | "imgUrl">) => {
+    const res = await axios.patch(
+      `http://localhost:4000/users/${updatedInfo.id}`,
+      updatedInfo
+    );
+    return res.data;
+  }
+);
+export const updateAvatar = createAsyncThunk(
+  "user/updateAvatar",
+  async (
+    updatedInfo: Omit<IUser, "password" | "name" | "phone" | "username">
+  ) => {
+    const res = await axios.patch(
+      `http://localhost:4000/users/${updatedInfo.id}`,
+      updatedInfo
+    );
+    return res.data;
+  }
+);
+export const updatePassword = createAsyncThunk(
+  "user/updatePassword",
+  async (
+    updatedInfo: Omit<IUser, "name" | "phone" | "username" | "imgUrl">
+  ) => {
+    const res = await axios.patch(
+      `http://localhost:4000/users/${updatedInfo.id}`,
+      updatedInfo
+    );
+    return res.data;
+  }
+);
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
     AcceptLogin(state, action) {
-      state.userLogged = action.payload;
-      console.log("logged",state.userLogged);      
+      const userInfo = JSON.stringify(action.payload);
+      localStorage.setItem("user", userInfo);
     },
     Logout(state) {
-      state.userLogged = {
-        id: "",
-        username: "",
-        password: "",
-      };
-      console.log("logged",state.userLogged);      
+      localStorage.removeItem("user");
     },
   },
   extraReducers(builder) {
-    builder.addCase(getAllUser.fulfilled, (state, action) => {
-      state.users = action.payload;
-    });
+    builder
+      .addCase(getAllUser.fulfilled, (state, action) => {
+        state.users = action.payload;
+      })
+      .addCase(register.fulfilled, (state, action) => {
+        state.users.push(action.payload);
+      })
+      .addCase(updateInfo.fulfilled, (state, action) => {
+        localStorage.removeItem("user");
+        const userInfo = JSON.stringify(action.payload);
+        localStorage.setItem("user", userInfo);
+      })
+      .addCase(updatePassword.fulfilled, (state, action) => {
+        localStorage.removeItem("user");
+        const userInfo = JSON.stringify(action.payload);
+        localStorage.setItem("user", userInfo);
+      })
+      .addCase(updateAvatar.fulfilled, (state, action) => {
+        localStorage.removeItem("user");
+        const userInfo = JSON.stringify(action.payload);
+        localStorage.setItem("user", userInfo);
+      });
   },
 });
 
 const userReducer = userSlice.reducer;
-export  const {AcceptLogin, Logout} = userSlice.actions;
+export const { AcceptLogin, Logout } = userSlice.actions;
 export default userReducer;

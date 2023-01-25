@@ -1,0 +1,36 @@
+.mini-cart {
+  width: 300px;
+  max-height: 550px;
+  background-color: #999;
+  border-radius: 5px;
+
+}
+.main-mini-cart{
+    overflow-y: scroll;
+    max-height: 450px;
+}
+.main-mini-cart::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.main-mini-cart {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.mini-product {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3%;
+  padding-bottom: 3%;
+  align-items: center;
+  border-bottom: 1px solid #fff;
+}
+.mini-image{
+    height: 100px;
+    object-fit: fill;
+}
+.go-to-cart{
+    margin: 10px 0 10px 0;
+}

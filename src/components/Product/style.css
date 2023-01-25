@@ -8,14 +8,21 @@
 .product-image {
   width: 100%;
 }
-.product-info{
+.product-info {
   text-align: center;
 }
-.product-info button{
-  margin: auto;
+.product-info button {
+  margin: 5px auto 0 auto;
   display: block;
   padding: 5px;
+  background-color: #000;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
 }
-.product-info button:hover{
- cursor: pointer;
+.product-info button:hover {
+  border: 0;
+  cursor: pointer;
+  background-color: rgb(198, 198, 198);
+  color: #000;
 }

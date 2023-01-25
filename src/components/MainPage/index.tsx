@@ -6,7 +6,10 @@ export default function MainPage() {
     return (
         <div>
             <Navbar />
-            <Outlet/>
+           <div style={{marginTop:'150px'}}>
+           <Outlet/>
+           </div>
+          
             <Footer/>
         </div>
     )

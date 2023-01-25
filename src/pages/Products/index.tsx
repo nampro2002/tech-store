@@ -1,7 +1,7 @@
 import Product from '../../components/Product'
 import { useAppSelector } from '../../redux/hooks'
 import { RootState } from '../../redux/store'
-
+import './style.css'
 export default function Products() {
 
   const productList = useAppSelector((state: RootState) => state.productList.productList)

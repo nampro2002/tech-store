@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { RootState } from '../../redux/store'
 import { AcceptLogin } from '../../redux/userSlice'
-
+import './style.css'
 interface LoginInfo {
     username: string
     password: string
@@ -16,6 +17,7 @@ export default function Login() {
     const [loginStatus, setLoginStatus] = useState(true)
     const userList = useAppSelector((state: RootState) => state.user.users)
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
     const handleSetInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value })
     }
@@ -23,11 +25,12 @@ export default function Login() {
         e.preventDefault()
         const userLogin = userList.find(user => (user.username === loginInfo.username && user.password === loginInfo.password))
         if (userLogin) {
+            setLoginStatus(true)
             dispatch(AcceptLogin(userLogin))
-
+            return navigate('/home')
         } else {
             console.log("invalid");
-
+            setLoginStatus(false)
         }
 
     }
@@ -39,6 +42,7 @@ export default function Login() {
             <div className="">
                 Password: <input type="text" name='password' value={loginInfo?.password} onChange={handleSetInput} />
             </div>
+        {!loginStatus && (<div className="errortext">Wrong username or password</div>)} 
             <button>Login</button>
         </form>
     )

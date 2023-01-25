@@ -19,11 +19,11 @@ export default function Search() {
 
   return (
     <div className='grid wide'>
-      {param && (<div>{`Kết quả tìm kiếm cho "${param}"`}</div>)}
       
-      <div className="row">
+      {param && (<div>{`Kết quả tìm kiếm cho "${param}"`}</div>)}
+      <div className="row no-gutters">
         {searchList?.map((prod) => (
-          <div key={prod.id} className="col l-4">
+          <div key={prod.id} className="col l-3" style={{marginTop:'20px'}}>
             <Product product={prod} />
           </div>
         ))}

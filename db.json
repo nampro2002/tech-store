@@ -123,22 +123,33 @@
   ],
   "cart": [
     {
-      "id": "1",
+      "id": 5,
+      "prodId": "2",
+      "userId": "1",
+      "price": 5000,
+      "name": "Màn hình 14 inch",
+      "quantity": 5
+    },
+    {
+      "id": 6,
+      "prodId": "2",
+      "price": 5000,
+      "name": "Màn hình 14 inch",
+      "quantity": 11
+    },
+    {
+      "id": 11,
+      "prodId": "1",
+      "userId": "2",
+      "price": 5000,
       "name": "Màn hình 25 inch",
-      "quantity": 6
-    },
-    {
-      "id": "2",
-      "name": "Màn hình 14 inch",
-      "quantity": 1
-    },
-    {
-      "id": "5",
-      "name": "Màn hình 14 inch",
       "quantity": 4
     },
     {
-      "id": "8",
+      "id": 12,
+      "prodId": "2",
+      "userId": "2",
+      "price": 5000,
       "name": "Màn hình 14 inch",
       "quantity": 3
     }
@@ -146,8 +157,32 @@
   "users": [
     {
       "id": "1",
+      "name": "Nam Can",
+      "phone": "0321678532",
       "username": "nampro2002",
+      "password": "1234",
+      "imgUrl": "https://images.unsplash.com/photo-1673973013493-f7d2bcab5ab5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+    },
+    {
+      "id": "2",
+      "name": "Khuat Sang",
+      "phone": "0432173412",
+      "username": "abc",
       "password": "123"
+    },
+    {
+      "name": "asdy",
+      "phone": "02314321678",
+      "username": "abcdef",
+      "password": "123",
+      "id": "YpYnGXd"
+    },
+    {
+      "name": "ds",
+      "phone": "312312",
+      "username": "dsa",
+      "password": "123",
+      "id": "2RBX_3i"
     }
   ]
 }

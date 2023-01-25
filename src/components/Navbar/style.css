@@ -1,18 +1,77 @@
-.navbar{
-  margin-bottom: 30px;
+.navbar {
+  margin-top: 10px;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
-.navbar-main{
-  background-color: #999;
-  padding: 20px 0;
+.navbar-main {
+  /* border-bottom: 1px solid #666; */
+  background-color: rgb(238, 236, 236);
+  padding: 10px 0;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.navbar button {
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  border: 0;
+}
+.navbar button:hover {
+  cursor: pointer;
+  color: #000;
+  border: 0;
+  background-color: rgb(255, 255, 255);
+}
+.navbar-input:focus {
+  outline: none;
 }
 
 .navbar-input {
   width: 70%;
-  margin-right: 10px;
+  height: 50px;
+  margin-right: 25px;
+  border-radius: 10px;
+  border: 0;
+  padding: 0 20px;
 }
-.navbar-search-button {
-  width: 20%;
+.navbar-cart-btn {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
-.logout{
+/* .navbar-cart-btn::after {
+  content: "";
+  position: absolute;
+  right: 22%;
+  width: 300px;
+  height: 100%;
+  background-color: #e74d3c00;
+  z-index: 1;
+} */
+.navbar-cart-btn:hover .mini-cart-hover {
+  display: block;
+}
+
+.mini-cart-hover {
+  position: absolute;
+  right: 25%;
+  display: none;
+}
+
+.btn-cart {
+  padding: 0 20px 0 20px;
+}
+.logout {
   margin-left: 10px;
+}
+.logo {
+}
+.logo-image {
+  max-width: 50%;
+}
+.item-center {
+  text-align: center;
 }

@@ -10,39 +10,52 @@ const initialState: initState = {
   cartList: [],
 };
 
-export const getAllCart = createAsyncThunk("cartList/getAllCart", async () => {
-  const res = await axios.get("http://localhost:4000/cart");
-  // console.log("cart", res.data);
-  // console.log("get");
-  return res.data;
-});
+export const getAllCart = createAsyncThunk(
+  "cartList/getAllCart",
+  async (userId: string) => {
+    const res = await axios.get(`http://localhost:4000/cart?userId=${userId}`);
+    // console.log("cart", res.data);
+    // console.log("get");
+    return res.data;
+  }
+);
 export const CheckCart = createAsyncThunk(
   "cartList/CheckCart",
-  async (product: IProduct, thunkAPI) => {
+  async (
+    { product, userId }: { product: IProduct; userId: string },
+    thunkAPI
+  ) => {
     const res = await axios.get("http://localhost:4000/cart");
     const cartList = res.data;
-    const productCart: IProductCart = {
-      id: product.id,
+    const productCart: Omit<IProductCart, "id"> = {
+      prodId: product.id,
+      userId,
+      price: product.price,
       name: product.name,
       quantity: 1,
     };
     const isAdded = cartList.some((prod: IProductCart) => {
-      if (prod.id === product.id) {
+      if (prod.prodId === product.id && prod.userId === userId) {
         thunkAPI.dispatch(
           updateToCart({
             id: prod.id,
+            prodId: prod.prodId,
+            userId,
+            price: prod.price,
             name: product.name,
             quantity: prod.quantity + 1,
           })
         );
         return true;
+      } else if (prod.prodId === product.id && prod.userId === userId) {
       }
       return false;
     });
     if (!isAdded) {
       thunkAPI.dispatch(addToCart(productCart));
     }
-    // console.log("check");
+    console.log("check");
+    console.log("isAdded", isAdded);
   }
 );
 export const updateToCart = createAsyncThunk(
@@ -52,13 +65,15 @@ export const updateToCart = createAsyncThunk(
       `http://localhost:4000/cart/${productCart.id}`,
       productCart
     );
-    // console.log("update");
+    console.log("update");
     return res.data;
   }
 );
 export const decreaseQuantity = createAsyncThunk(
   "cartList/decreaseQuantity",
   async (productCart: IProductCart) => {
+    console.log("id of product", productCart.id);
+
     const res = await axios.put<IProductCart>(
       `http://localhost:4000/cart/${productCart.id}`,
       productCart
@@ -69,6 +84,7 @@ export const decreaseQuantity = createAsyncThunk(
 export const increaseQuantity = createAsyncThunk(
   "cartList/increaseQuantity",
   async (productCart: IProductCart) => {
+    console.log("id of product", productCart.id);
     const res = await axios.put<IProductCart>(
       `http://localhost:4000/cart/${productCart.id}`,
       productCart
@@ -78,12 +94,12 @@ export const increaseQuantity = createAsyncThunk(
 );
 export const addToCart = createAsyncThunk(
   "cartList/addToCart",
-  async (productCart: IProductCart) => {
+  async (productCart: Omit<IProductCart, "id">) => {
+    console.log("add");
     const res = await axios.post<IProductCart>(
       "http://localhost:4000/cart",
       productCart
     );
-    // console.log("add");
     return res.data;
   }
 );
@@ -116,7 +132,7 @@ const cartSlice = createSlice({
       .addCase(updateToCart.fulfilled, (state, action) => {
         // console.log("up-fullfilled");
         state.cartList.some((product) => {
-          if (product.id === action.payload.id) {
+          if (product.prodId === action.payload.prodId) {
             product.quantity += 1;
             return true;
           }
@@ -126,7 +142,7 @@ const cartSlice = createSlice({
       .addCase(decreaseQuantity.fulfilled, (state, action) => {
         // console.log("decrease-fullfilled");
         state.cartList.some((product) => {
-          if (product.id === action.payload.id) {
+          if (product.prodId === action.payload.prodId) {
             product.quantity -= 1;
             return true;
           }
@@ -136,7 +152,7 @@ const cartSlice = createSlice({
       .addCase(increaseQuantity.fulfilled, (state, action) => {
         // console.log("increase-fullfilled");
         state.cartList.some((product) => {
-          if (product.id === action.payload.id) {
+          if (product.prodId === action.payload.prodId) {
             product.quantity += 1;
             return true;
           }
@@ -148,6 +164,7 @@ const cartSlice = createSlice({
         state.cartList = state.cartList.filter(
           (prod) => prod.id !== action.payload
         );
+        console.log("cartList", state.cartList);
       });
   },
 });

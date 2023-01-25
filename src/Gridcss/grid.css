@@ -20,6 +20,9 @@
     margin-left: 0;
     margin-right: 0;
 }
+.row.center {
+    align-items: center;
+}
 
 .col {
     padding-left: 4px;
